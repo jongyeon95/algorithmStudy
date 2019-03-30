@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main(){
+    
+    char input;
+    while(1){
+        input=getchar();
+        if(input==EOF)
+            break;
+        putchar(input);
+    }
+    return 0;
+}
+
+
+//EOF 문자의 마지막 식별자
