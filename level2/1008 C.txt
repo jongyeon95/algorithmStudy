@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main() {
+	double A,B;
+	scanf("%lf %lf", &A, &B);
+	printf("%.9lf\n", A/B);
+	return 0;
+
+}
+
+// %f는 파라미터 크기가 4이면 float처리 8이면 더블 처리
+//scanf는 포인터로 받기때문에 주소값 4byte만 받는다.
+//그래서 lf 와 f 로 구분 해주어야함
