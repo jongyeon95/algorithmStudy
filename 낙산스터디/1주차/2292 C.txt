@@ -1,18 +1,18 @@
-#include stdio.h
+#include <stdio.h>
 int main() {
 	int sum = 1;
 	int sumadd = 6;
 	int count = 1;
 	int choose;
-	scanf(%d, &choose);
+	scanf("%d", &choose);
 	while (1) {
-		if (choose = sum) {
+		if (choose <= sum) {
 			break;
 		}
 		sum += sumadd;
         sumadd+=6;
 		count++;
 	}
-	printf(%d, count);
+	printf("%d", count);
 	return 0;
 }
