@@ -1,0 +1,17 @@
+#include <stdio.h>
+ 
+int main() {
+    int n;
+    scanf("%d ", &n);
+ 
+    int sum = 0;
+    while (n--) {
+        char ch;
+        scanf("%c", &ch);
+        sum += ch - '0';
+    }
+    printf("%d\n", sum);
+ 
+    return 0;
+}
+// 아스키 코드는 int 값일때 '0' 빼주거나 48 빼면됨
