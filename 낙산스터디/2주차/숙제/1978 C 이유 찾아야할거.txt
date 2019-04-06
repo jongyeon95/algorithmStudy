@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main(){
+
+int hownum;
+int count;
+
+scanf("%d",&hownum);
+int a[hownum];
+
+for(int i=0; i<hownum;i++){
+scanf("%d",&a[i]);
+}
+
+for(int i=0;i<hownum;i++){
+for(int j=2;j<a[i];j++){
+if(a[i]==1){break;}
+if(a[i]%j==0){
+break;
+}
+if(j==a[i]-1){
+count++;
+}
+}
+}
+
+printf("%d",count);
+return 0;
+}
