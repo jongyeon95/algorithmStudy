@@ -1,0 +1,30 @@
+#include <stdio.h>
+int main(){
+	int testcase=0;
+	int people=0;
+	int temp=0;
+	int total=0;
+	double result=0;
+	scanf("%d",&testcase);
+	for(int i=0;i<testcase;i++){
+		scanf("%d",&people);
+		total=0;
+		int peopletemp[people];
+		for (int j = 0; j < people; j++)
+		{
+		  temp=0;
+		  scanf("%d",&temp);
+		  peopletemp[j]=temp;
+		  total += temp;
+		}
+		result=(double)total/people;
+		temp=0;
+		for (int j = 0; j < people; j++)
+		{
+		  if(peopletemp[j]>result){temp+=1;}
+		}
+		result=(double)temp*100/people;
+		printf("%.3f\% \n",result);
+	}
+	return 0;
+}
