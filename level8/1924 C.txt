@@ -1,0 +1,22 @@
+#include <stdio.h>
+int main(){
+int month[12]={31,28,31,30,31,30,31,31,30,31,30,31};
+int totalday=0;
+int x=0,y=0;
+scanf("%d %d",&x,&y);
+for(int i=1; i<x;i++){
+totalday+=month[i-1];
+}
+totalday+=y;
+switch(totalday%7){
+case 0: printf("SUN"); break;
+case 1: printf("MON"); break;
+case 2: printf("TUE"); break;
+case 3: printf("WED"); break;
+case 4: printf("THU"); break;
+case 5: printf("FRI"); break;
+case 6: printf("SAT"); break;
+}
+
+return 0;
+}
