@@ -1,0 +1,15 @@
+#include<stdio.h>
+int main()
+{
+    int N,kim,lim,cnt=0;
+
+    scanf("%d %d %d", &N, &kim, &lim);
+
+    while(kim != lim){
+        kim = kim-kim/2;
+        lim = lim-lim/2;
+        cnt+=1;
+    }
+    
+    printf("%d", cnt);
+}

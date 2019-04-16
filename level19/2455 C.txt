@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main(){
+int inp[4]={0,};
+int outp[4]={0,};
+int totalp[4]={0,};
+int result=0;
+for(int i=0;i<4;i++){
+    scanf("%d %d",&outp[i],&inp[i]);
+    if(i==0)
+    {totalp[i]=inp[i]-outp[i];}
+    else
+    {
+        totalp[i]=totalp[i-1]+inp[i]-outp[i];
+        }
+    
+}
+for(int i=0;i<4;i++){
+ if(result<totalp[i]){result=totalp[i];}
+}
+printf("%d",result);
+
+return 0;
+}
