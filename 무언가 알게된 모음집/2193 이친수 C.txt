@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int sol(int n){
+    long long int pnumber[91];
+     pnumber[0]=0;
+     pnumber[1]=1;
+     pnumber[2]=1;
+    
+    for(int i=3;i<n+1;i++){
+       pnumber[i]=pnumber[i-1]+pnumber[i-2];
+    }
+    printf("%lld\n",pnumber[n]);
+
+
+}
+
+int main()
+{
+    int n=0;
+    scanf("%d",&n);
+    sol(n);
+    
+}
+
+//DP 문제를 풀때 수위 범위 꼭확인하가
+//long long int 할때 출력 %lld 
