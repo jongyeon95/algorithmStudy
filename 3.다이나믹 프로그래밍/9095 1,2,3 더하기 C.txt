@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int sol(int n){
+    int sum123[12];
+    sum123[0]=0;
+    sum123[1]=1;
+    sum123[2]=2;
+    sum123[3]=4;
+    for(int i=4;i<n+1;i++){
+        sum123[i]=(sum123[i-3]+sum123[i-2]+sum123[i-1]);
+    }
+    printf("%d\n",sum123[n]);
+
+
+}
+
+int main()
+{
+    int n=0;
+    int cnt=0;
+    scanf("%d",&cnt);
+    for(int i=0;i<cnt;i++){
+    scanf("%d",&n);
+    sol(n);
+    }
+}

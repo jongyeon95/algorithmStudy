@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int sol(int n){
+    int square[1001];
+    square[0]=0;
+    square[1]=1;
+    square[2]=3;
+    for(int i=3;i<n+1;i++){
+        square[i]=(square[i-2]*2+square[i-1])%10007;
+    }
+    printf("%d",square[n]);
+
+
+}
+
+int main()
+{
+    int n=0;
+    scanf("%d",&n);
+    sol(n);
+}
