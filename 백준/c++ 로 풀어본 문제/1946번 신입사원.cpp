@@ -1,26 +1,31 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
-bool comp(int *a, int *b)
+const int MAX = 100000;
+int N;
+pair<int, int> employee[MAX];
+int main(void)
 {
- if (a[0] < b[0])
-  return true;
- else
-  return false;
-}
-int main(){
-	int Tcase;
-	cin >> Tcase;
-	for(int i=0; i<Tcase; i++){
-		int N;
-		cin >> N;
-		int emp[N][2];
-		for(int j=0; j<N;j++){
-			cin >> emp[j][0];
-			cin >> emp[j][1];
-		}
-		sort(emp,emp+N,comp);
-		cout<< emp << "\n";
-	}
+        int test_case;
+        cin >> test_case;
+        for (int t = 0; t < test_case; t++)
+        {
+                 cin >> N;
+                 for (int i = 0; i < N; i++)
+                         cin >> employee[i].first >> employee[i].second;
+                 sort(employee, employee + N);
+                 int result = 1;
+                 int interviewRank = employee[0].second; 
+                 for (int i = 1; i < N; i++)
+                 {
+                         if (employee[i].second < interviewRank)
+                         {
+                                 result++;
+                                 interviewRank = employee[i].second;
+                         }
+                 }
+                 cout << result << "\n";
+        }
+        return 0;
 
-} ing..
+}
