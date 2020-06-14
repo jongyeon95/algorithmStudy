@@ -16,12 +16,17 @@ void input(){
 			cin >> map[i][j];
 }
 
+//맵 복사
 void copy(){
 	for (int i = 0; i < mapSize; ++i)
 		for (int j = 0; j < mapSize; ++j)
 			cMap[i][j]=map[i][j];
 }
 
+// 움직이기
+// 상하좌우방향에 맞추어 맵에서 0인 아닌 값을  Queue에 넣는다.
+// 해당 맵의 위치는 0으로 바꾼다.
+// Queue에 값을 모두 넣었다면 상하좌우 방향에 맞추어 Queue에 있는 값을 순서대로 넣는다.
 void move(int dir){
 	if(dir==0){//상
 		for (int j = 0; j < mapSize; ++j)
@@ -104,6 +109,7 @@ void move(int dir){
 	}
 }
 
+// 이웃한 값의 숫자가 같다면 순서가 빠른 위치를 2배하고 느린 위치를 0으로 바꾼다.
 void sumNum(int dir){
 	if(dir==0){// 상
 		for (int j = 0; j < mapSize; ++j)
@@ -161,25 +167,27 @@ void sumNum(int dir){
 
 void solve(){
 	memset(cMap,0,sizeof(cMap));
-	copy();
+	copy(); // 임시 맵 복사
 	for (int i = 0; i < 5; ++i)
 	{
-		move(command[i]);
-		sumNum(command[i]);
-		move(command[i]);
+		move(command[i]);//한 방향으로 움직인다.
+		sumNum(command[i]);//합친다
+		move(command[i]);//합친 후 공백을 없애기 위해 다시 움직인다. 
 	}
 	int result=0;
+	// 합 계산
 	for (int i = 0; i < mapSize; ++i)
 		for (int j = 0; j < mapSize; ++j)
 			if(cMap[i][j]>result)
 				result=cMap[i][j];
+
 	if(ans<result)
 		ans=result;
 
 
 }
 
-
+// 명령의 조합 만들기
 void dfs(){
 	if(command.size()==5){
 		solve();
