@@ -2,7 +2,6 @@
 #include<queue>
 #include<vector>
 
-
 using namespace std;
 
 
@@ -11,10 +10,10 @@ int dy[4] = { 0,0,-1,1 };
 
 vector<int> solution(int m, int n, vector<vector<int>> picture)
 {
-    bool visit[100][100] = { 0, };
-    int number_of_area = 0;
+    bool visit[100][100] = { 0, }; // 방문 체크
+    int number_of_area = 0; // 영역 갯수
     int max_size_of_one_area = 0;
-    int idx = 0;
+    int idx = 0;// 색 
 
     queue<pair<int, int>>q;
 
@@ -22,8 +21,9 @@ vector<int> solution(int m, int n, vector<vector<int>> picture)
     {
         for (int i = 0; i < picture[j].size(); i++)
         {
-            int area = 0;
+            int area = 0; // 새로운 영역의 넓이
 
+            // 색이 칠해져있고 방문 하지 않았다면
             if (picture[j][i] != 0 && !visit[i][j])
             {
                 q.push({i, j});
@@ -46,6 +46,7 @@ vector<int> solution(int m, int n, vector<vector<int>> picture)
 
                     if (tx<0 || tx>=n || ty<0 || ty>=m)
                         continue;
+                    // 앞으로 갈 위치의 색과 현재 색이 같고 방문 하지 않았다면
                     if (idx == picture[ty][tx] && !visit[tx][ty])
                     {
                         q.push({tx,ty});
@@ -54,7 +55,8 @@ vector<int> solution(int m, int n, vector<vector<int>> picture)
                     }
                 }
             }
-            if(max_size_of_one_area<area)
+            // 제일 큰 넓이 구하기
+            if(max_size_of_one_area < area)
                 max_size_of_one_area=area;    
         }
 
