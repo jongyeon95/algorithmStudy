@@ -1,7 +1,7 @@
 #include<iostream>
 #include<queue>
 #include<vector>
-#include<algorithm>
+
 
 using namespace std;
 
@@ -14,7 +14,6 @@ vector<int> solution(int m, int n, vector<vector<int>> picture)
     bool visit[100][100] = { 0, };
     int number_of_area = 0;
     int max_size_of_one_area = 0;
-    vector<int>maxArea;
     int idx = 0;
 
     queue<pair<int, int>>q;
@@ -49,20 +48,17 @@ vector<int> solution(int m, int n, vector<vector<int>> picture)
                         continue;
                     if (idx == picture[ty][tx] && !visit[tx][ty])
                     {
-                        q.push(make_pair(tx, ty));
+                        q.push({tx,ty});
                         area++;
                         visit[tx][ty] = true;
                     }
                 }
             }
-            maxArea.push_back(area);
-
+            if(max_size_of_one_area<area)
+                max_size_of_one_area=area;    
         }
 
     }
-    sort(maxArea.begin(), maxArea.end());
-    max_size_of_one_area = maxArea[maxArea.size()-1];
-
 
     vector<int> answer(2);
     answer[0] = number_of_area;
