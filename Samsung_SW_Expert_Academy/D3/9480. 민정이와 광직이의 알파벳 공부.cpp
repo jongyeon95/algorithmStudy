@@ -4,7 +4,6 @@
 #include<vector>
 using namespace std;
 
-bool visited[15];
 int alphabet[26];
 vector<string> words;
 int n;
@@ -58,16 +57,17 @@ int main(int argc, char** argv)
     for(test_case = 1; test_case <= T; ++test_case)
 	{
         result=0;
-        memset(visited,false,sizeof(visited));
         memset(alphabet,0,sizeof(alphabet));
         words.clear();
         cin>>n;
+        
         for(int i=0; i<n; i++){
         	string s;
             cin>>s;
             words.push_back(s);
         }
         dfs(0);
+        
         cout<<"#"<<test_case<<" "<<result<<"\n";
         
 	}
