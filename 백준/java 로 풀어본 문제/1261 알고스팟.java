@@ -39,11 +39,11 @@ public class Main {
             room[i][j]=input.charAt(j)-'0';
             }
         }   
-        System.out.println(bfs());
+        System.out.println(solved());
 
     }
 
-public static int bfs(){
+public static int solved(){
     PriorityQueue<Node> pq= new PriorityQueue<>();
     int dy[]={0,0,1,-1};
     int dx[]={1,-1,0,0};
