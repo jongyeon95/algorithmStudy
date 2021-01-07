@@ -1,0 +1,48 @@
+class Solution {
+    public int solution(String name) {
+        int answer = 0;
+        int index=0;
+        StringBuilder compareStr=new StringBuilder();
+        for(int i=0; i<name.length(); i++){
+            compareStr.append("A");
+        }
+        while(!compareStr.toString().equals(name)){
+            if(compareStr.charAt(index)==name.charAt(index)){        
+                int fflag=index;
+                int bflag=index;
+                int dist=0;
+                while(true){
+                    if(compareStr.charAt(fflag)!=name.charAt(fflag)){
+                        index=fflag;
+                        break;
+                    }
+                    if(compareStr.charAt(bflag)!=name.charAt(bflag)){
+                        index=bflag;
+                        break;
+                    }
+                    dist++;
+                    fflag++;
+                    bflag--;
+                    if(fflag>=name.length()){
+                        fflag=0;
+                    }
+                    if(bflag<0){
+                        bflag=name.length()-1;
+                    }
+                }
+                answer+=dist;
+             
+            }
+            else{
+                if(name.charAt(index)<='M'){
+                    answer+=name.charAt(index)-'A';
+                }
+                else{
+                    answer+='Z'-name.charAt(index)+1;
+                }
+                compareStr.setCharAt(index,name.charAt(index));
+            }
+        }
+        return answer;
+    }
+}
