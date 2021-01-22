@@ -1,30 +1,28 @@
 class Solution {
     public int solution(int n) {
         int answer = 0;
-        int num=0;
-        int minusNum=1;
-        int addNum=1;
-        while(!(minusNum>=n&&addNum>=n)){
-            if(num==n){
+        int num = 0;
+        int minusNum = 1;
+        int addNum = 1;
+        while (!(minusNum >= n && addNum >= n)) {
+            if (num == n) {
                 answer++;
-                if(addNum>n)
+                if (addNum > n)
                     continue;
-                num+=addNum;
+                num += addNum;
                 addNum++;
-            }
-            else if(num<n){
-                if(addNum>n)
+            } else if (num < n) {
+                if (addNum > n)
                     continue;
-                num+=addNum;
+                num += addNum;
                 addNum++;
-            }
-            else{
-                if(minusNum>n)
+            } else {
+                if (minusNum > n)
                     continue;
-                num-=minusNum;
+                num -= minusNum;
                 minusNum++;
             }
         }
-        return answer+1;
+        return answer + 1;
     }
 }
